@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Poppins:wght@400;700&display=swap');
+
+#Sub_Location {
+	width: 100%;
+	height: 100%;
+	padding: 154px 10% 64px;
+	overflow: hidden;
+
+	.wrap {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		.title {
+			width: 50%;
+			padding: 30px 0 100px;
+
+			.main {
+				width: 100%;
+				border-bottom: 1px solid #1e1e2f;
+
+				h1 {
+					width: 100%;
+					font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+					font-weight: 700;
+					font-size: 70px;
+					padding-bottom: 20px;
+				}
+			}
+
+			.sub {
+				width: 100%;
+				text-align: right;
+				padding: 30px 0;
+
+				h2 {
+					display: inline-block;
+					width: 50%;
+					font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+					font-weight: 400;
+					font-size: 16px;
+				}
+			}
+		}
+
+		.contents {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+
+			.Contact_Us {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				.left {
+					width: 50%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-wrap: wrap;
+					padding: 0 1%;
+					border-right: 1px solid rgba(30, 30, 47, 0.5);
+
+					.left_title {
+						width: 100%;
+						padding: 20px 0;
+
+						h1 {
+							font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+							font-weight: 700;
+							font-size: 24px;
+						}
+					}
+
+					.left_sub_title {
+						width: 100%;
+						padding-bottom: 20px;
+
+						h2 {
+							font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+							font-weight: 400;
+							font-size: 16px;
+						}
+					}
+
+					ul {
+						width: 100%;
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						flex-wrap: wrap;
+
+						li {
+							width: 50%;
+							padding: 10px 5px;
+
+							&:last-child {
+								padding-right: 6%;
+								width: 100%;
+							}
+
+							.input_Area {
+								width: 90%;
+								text-align: left;
+								position: relative;
+								margin: 15px 0;
+								cursor: pointer;
+
+								input {
+									font-size: 15px;
+									color: #1e1e2f;
+									width: 100%;
+									border: none;
+									border-bottom: 1px solid #1e1e2f;
+									padding-bottom: 10px;
+									padding-left: 10px;
+									position: relative;
+									background: none;
+									margin-right: 10px;
+
+									&::placeholder {
+										color: #aaaaaa;
+									}
+									&:focus {
+										outline: none;
+									}
+
+									&:focus ~ label,
+									&:valid ~ label {
+										font-size: 16px;
+										bottom: 40px;
+										color: #666;
+										font-weight: bold;
+									}
+
+									&:focus ~ span,
+									&:valid ~ span {
+										width: 100%;
+									}
+								}
+
+								label {
+									position: absolute;
+									color: #aaa;
+									left: 10px;
+									font-size: 20px;
+									bottom: 8px;
+									transition: all 0.2s;
+								}
+							}
+
+							textarea {
+								width: 100%;
+								height: auto;
+								padding: 15px;
+								color: #1e1e2f;
+								font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+								font-weight: 400;
+								resize: none;
+								background: transparent;
+								border: none;
+								border-bottom: 1px solid #1e1e2f;
+								outline: none;
+
+								&::placeholder {
+									font-size: 20px;
+								}
+							}
+						}
+					}
+
+					.btn_Area {
+						width: 100%;
+						text-align: right;
+						padding-right: 50px;
+						padding-top: 20px;
+
+						button {
+							width: 100px;
+							height: 40px;
+							font-size: 17px;
+							border: 2px solid #1e1e2f;
+							font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+							font-weight: 500;
+							background: transparent;
+							cursor: pointer;
+							transition: all 0.3s ease;
+							position: relative;
+							display: inline-block;
+							border-radius: 10px;
+
+							&:after {
+								position: absolute;
+								content: ' ';
+								top: 0;
+								left: 0;
+								z-index: -1;
+								width: 100%;
+								height: 100%;
+								transition: all 0.3s ease;
+								transform: scale(0.1);
+							}
+							&:hover {
+								color: #fff;
+							}
+							&:hover:after {
+								background: #000;
+								transform: scale(1);
+							}
+						}
+					}
+				}
+
+				.right {
+					width: 50%;
+					padding-left: 1%;
+
+					ul {
+						width: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-wrap: wrap;
+
+						li {
+							width: 100%;
+							padding: 15px;
+							cursor: pointer;
+
+							&.on {
+								border-radius: 10px;
+								background: rgba(30, 30, 47, 0.05);
+							}
+
+							.right_title {
+								width: 100%;
+								padding: 10px 0;
+
+								h1 {
+									font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+									font-weight: 700;
+									font-size: 24px;
+								}
+							}
+
+							.right_sub_title {
+								width: 100%;
+								padding-bottom: 15px;
+
+								h2 {
+									font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+									font-weight: 400;
+									font-size: 16px;
+								}
+							}
+
+							.phone_Area {
+								width: 100%;
+								display: flex;
+								justify-content: left;
+								align-items: center;
+
+								.icon_Area {
+									width: 35px;
+									height: 35px;
+									margin-right: 10px;
+									position: relative;
+									border-radius: 15px;
+									background: rgba(234, 108, 1, 0.11);
+
+									svg {
+										width: 50%;
+										position: absolute;
+										top: 25%;
+										left: 25%;
+										fill: #ea6c01;
+										object-fit: cover;
+									}
+								}
+
+								span {
+									font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+									font-weight: 400;
+									font-size: 14px;
+									color: #ea6c01;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.Map_Area {
+				width: 100%;
+				height: 500px;
+				overflow: hidden;
+				padding: 1px;
+				margin-top: 50px;
+				border-radius: 30px;
+
+				#map {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	#Sub_Location {
+		padding: 110px 5% 50px;
+
+		.wrap {
+			.title {
+				width: 100%;
+				padding: 0px 0 50px;
+
+				.main {
+					h1 {
+						font-weight: 700;
+						font-size: 50px;
+						padding-bottom: 20px;
+					}
+				}
+
+				.sub {
+					width: 100%;
+					padding: 30px 0;
+
+					h2 {
+						width: 100%;
+						font-size: 16px;
+					}
+				}
+			}
+
+			.contents {
+				.Contact_Us {
+					flex-wrap: wrap;
+
+					.left {
+						width: 100%;
+						border-right: none;
+						margin-bottom: 30px;
+
+						.left_title {
+							width: 100%;
+							padding: 10px 0;
+
+							h1 {
+								font-size: 20px;
+							}
+						}
+
+						.left_sub_title {
+							padding-bottom: 30px;
+
+							h2 {
+								font-size: 14px;
+							}
+						}
+
+						ul {
+							li {
+								padding: 10px 5px;
+
+								&:last-child {
+									padding-right: 0%;
+									width: 100%;
+								}
+
+								.input_Area {
+									margin: 15px auto;
+
+									input {
+										font-size: 13px;
+
+										&:focus ~ label,
+										&:valid ~ label {
+											font-size: 13px;
+										}
+									}
+
+									label {
+										font-size: 15px;
+									}
+								}
+
+								textarea {
+									&::placeholder {
+										font-size: 15px;
+									}
+								}
+							}
+						}
+
+						.btn_Area {
+							padding-right: 30px;
+							padding-top: 15px;
+
+							button {
+								height: 30px;
+								font-size: 15px;
+							}
+						}
+					}
+
+					.right {
+						width: 100%;
+						padding-left: 0%;
+
+						ul {
+							li {
+								width: 100%;
+								padding: 15px;
+								cursor: pointer;
+
+								.right_title {
+									h1 {
+										font-size: 20px;
+									}
+								}
+
+								.right_sub_title {
+									h2 {
+										font-size: 14px;
+									}
+								}
+
+								.phone_Area {
+									.icon_Area {
+										width: 25px;
+										height: 25px;
+									}
+
+									span {
+										font-size: 12px;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.Map_Area {
+					height: 300px;
+				}
+			}
+		}
+	}
+}
