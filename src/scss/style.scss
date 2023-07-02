@@ -5,20 +5,20 @@ $mobile: 639px;
 //common
 @import 'common/reset';
 @import 'common/header';
-@import 'common/layout';
+// @import 'common/layout';
 @import 'common/footer';
-@import 'common/pop';
+// @import 'common/pop';
 
 //main
 @import 'main/categories';
 @import 'main/skills';
 @import 'main/visual';
 @import 'main/youtube';
-@import 'main/scroll_navi';
+// @import 'main/scroll_navi';
 
 //sub
 @import 'sub/Members';
-@import 'sub/Youtube';
-@import 'sub/Gallery';
-@import 'sub/Register';
-@import 'sub/Location';
+// @import 'sub/Youtube';
+// @import 'sub/Gallery';
+// @import 'sub/Register';
+// @import 'sub/Location';

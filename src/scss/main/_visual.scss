@@ -140,7 +140,7 @@ $visuals: ('visual01', 'visual02', 'visual03');
 			@for $i from 1 through 3 {
 				.picture:nth-of-type(#{$i}) {
 					width: 100%;
-					background-image: url('../img/main/#{nth($visuals,$i)}.png');
+					background-image: url('/img/main/#{nth($visuals,$i)}.png');
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: cover;

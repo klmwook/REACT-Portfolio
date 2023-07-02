@@ -113,7 +113,7 @@ $categories: ('Categories01.png', 'Categories02.png', 'Categories03.png', 'Categ
 				@for $i from 1 through 4 {
 					.img#{$i} {
 						width: 100%;
-						background-image: url('../img/main/#{nth($categories,$i)}');
+						background-image: url('/img/main/#{nth($categories,$i)}');
 						background-repeat: no-repeat;
 						background-position: center;
 						background-size: cover;
