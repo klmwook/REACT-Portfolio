@@ -25,6 +25,7 @@ function App() {
 			</Switch>
 
 			<Route path='/Members' component={Members} />
+			<Route path='/Youtube' component={Youtube} />
 			<Footer />
 		</>
 	);

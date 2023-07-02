@@ -2,12 +2,14 @@ $pc_small: 1200px;
 $tablet: 999px;
 $mobile: 639px;
 
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Poppins:wght@400;700&display=swap');
+
 //common
 @import 'common/reset';
 @import 'common/header';
-// @import 'common/layout';
+@import 'common/layout';
 @import 'common/footer';
-// @import 'common/pop';
+@import 'common/pop';
 
 //main
 @import 'main/categories';
@@ -18,7 +20,7 @@ $mobile: 639px;
 
 //sub
 @import 'sub/Members';
-// @import 'sub/Youtube';
+@import 'sub/Youtube';
 // @import 'sub/Gallery';
 // @import 'sub/Register';
 // @import 'sub/Location';
