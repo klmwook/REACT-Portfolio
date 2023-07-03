@@ -26,6 +26,7 @@ function App() {
 
 			<Route path='/Members' component={Members} />
 			<Route path='/Youtube' component={Youtube} />
+			<Route path='/Location' component={Location} />
 			<Footer />
 		</>
 	);

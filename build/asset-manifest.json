@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/REACT-Portfolio/static/css/main.381c38c8.css",
+    "main.js": "/REACT-Portfolio/static/js/main.03e4fae5.js",
+    "static/media/visual03.png": "/REACT-Portfolio/static/media/visual03.a4e78f2f8b77da8fc54e.png",
+    "static/media/visual01.png": "/REACT-Portfolio/static/media/visual01.000f192e004ac1fb9464.png",
+    "static/media/visual02.png": "/REACT-Portfolio/static/media/visual02.aba963d81b6f88caada2.png",
+    "static/media/Categories03.png": "/REACT-Portfolio/static/media/Categories03.84ac516b3b93c8c5a085.png",
+    "static/media/Categories01.png": "/REACT-Portfolio/static/media/Categories01.0fb5ad3a989e6daf259e.png",
+    "static/media/Categories02.png": "/REACT-Portfolio/static/media/Categories02.f5cc605009b5cf677c30.png",
+    "static/media/Categories04.png": "/REACT-Portfolio/static/media/Categories04.945898c0aaeddbb60322.png",
+    "static/media/Members_icon_01.png": "/REACT-Portfolio/static/media/Members_icon_01.9bb717ce4ba4919e227f.png",
+    "static/media/ico_instagram.svg": "/REACT-Portfolio/static/media/ico_instagram.116ad97e1f8e0638fcb7.svg",
+    "static/media/ico_twitter.svg": "/REACT-Portfolio/static/media/ico_twitter.0407223bb7bca83e1349.svg",
+    "index.html": "/REACT-Portfolio/index.html",
+    "static/media/ico_facebook.svg": "/REACT-Portfolio/static/media/ico_facebook.3393a8700aa477db6175.svg",
+    "main.381c38c8.css.map": "/REACT-Portfolio/static/css/main.381c38c8.css.map",
+    "main.03e4fae5.js.map": "/REACT-Portfolio/static/js/main.03e4fae5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.381c38c8.css",
+    "static/js/main.03e4fae5.js"
+  ]
+}
