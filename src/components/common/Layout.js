@@ -1,7 +1,15 @@
+import { useEffect, useRef } from 'react';
+
 function Layout({ id, name, children }) {
+	const Sub_Layout = useRef(null);
+
+	useEffect(() => {
+		Sub_Layout.current.classList.add('on');
+	}, []);
+
 	return (
 		<>
-			<section id={id} className='Sub_Layout'>
+			<section id={id} className='Sub_Layout' ref={Sub_Layout}>
 				<div className='wrap'>
 					<div className='title'>
 						<div className='main'>

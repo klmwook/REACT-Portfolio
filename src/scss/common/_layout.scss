@@ -7,6 +7,11 @@ body {
 	height: 100%;
 	padding: 154px 10% 64px;
 	overflow: hidden;
+	opacity: 0;
+	transform: translateY(200px);
+	transition-property: opacity, transform;
+	transition-duration: 1s;
+	transition-delay: 0.5s;
 
 	.wrap {
 		width: 100%;
@@ -45,6 +50,11 @@ body {
 			}
 		}
 	}
+}
+
+.Sub_Layout.on {
+	opacity: 1;
+	transform: translateY(0px);
 }
 
 @media screen and (max-width: $tablet) {
