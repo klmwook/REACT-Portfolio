@@ -61,7 +61,22 @@ function Location() {
 
 		window.addEventListener('resize', setCenter);
 
-		return () => window.removeEventListener('resize', setCenter);
+		const form_input = contact_form.current.querySelectorAll('.input_Area');
+
+		form_input.forEach((input, idx) => {
+			input.addEventListener('click', () => {
+				input.querySelector('input').focus();
+			});
+		});
+
+		return () => {
+			window.removeEventListener('resize', setCenter);
+			form_input.forEach((input, idx) => {
+				input.removeEventListener('click', () => {
+					input.querySelector('input').focus();
+				});
+			});
+		};
 	}, [Index]);
 
 	//이메일 전송 로직
