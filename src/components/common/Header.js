@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Header({ LoginBtn }) {
+function Header({ login }) {
 	const active = 'on';
 	const hedaer = useRef(null);
 	const toggleLogin = useRef(null);
@@ -54,7 +54,7 @@ function Header({ LoginBtn }) {
 				</ul>
 
 				<ul className='Login_Area'>
-					<li className='Login' onClick={() => LoginBtn.current.toggle()}>
+					<li className='Login' onClick={() => login.current.toggle()}>
 						<Link to=''>Login</Link>
 					</li>
 					<li className='btn'>
