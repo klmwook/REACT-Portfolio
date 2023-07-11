@@ -23,8 +23,8 @@ function App() {
 	return (
 		<>
 			<Switch>
-				<Route exact path='/' render={() => <Main LoginBtn={login} />} />
-				<Route path='/' render={() => <Header LoginBtn={login} />} />
+				<Route exact path='/' render={() => <Main login={login} />} />
+				<Route path='/' render={() => <Header login={login} />} />
 			</Switch>
 
 			<Route path='/Members' component={Members} />
