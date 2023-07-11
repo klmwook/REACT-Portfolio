@@ -74,8 +74,8 @@ function Skills() {
 									src='https://player.vimeo.com/video/641585003?h=a359e6a27b&background=1&autoplay=1&loop=1&byline=0&title=0&quality=480p'
 									width='100%'
 									height='480px'
-									frameborder='0'
-									allowfullscreen=''
+									frameBorder='0'
+									allowFullScreen=''
 									title='iframe_movie'
 								></iframe>
 							</div>

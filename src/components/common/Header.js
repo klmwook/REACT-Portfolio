@@ -1,9 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+//font awesome을 사용하기 위한 import
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Header() {
+function Header({ LoginBtn }) {
 	const active = 'on';
 	const hedaer = useRef(null);
+	const toggleLogin = useRef(null);
 
 	useEffect(() => {
 		hedaer.current.classList.add('on');
@@ -50,7 +54,7 @@ function Header() {
 				</ul>
 
 				<ul className='Login_Area'>
-					<li className='Login'>
+					<li className='Login' onClick={() => LoginBtn.current.toggle()}>
 						<Link to=''>Login</Link>
 					</li>
 					<li className='btn'>
@@ -60,10 +64,8 @@ function Header() {
 
 				{/* 모바일 전용 버튼 */}
 				<Link to='' id='mo_menu' className='btnCall'>
-					<i className='fa-solid fa-bars'></i>
+					<FontAwesomeIcon icon={faBars} onClick={() => alert('mobile')} />
 				</Link>
-
-				<div className='mobile_menu'></div>
 			</header>
 		</>
 	);

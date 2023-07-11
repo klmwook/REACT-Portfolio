@@ -15,13 +15,16 @@ import Register from './components/sub/Register';
 import Youtube from './components/sub/Youtube';
 
 import './scss/style.scss';
-
+import Login from './components/common/Login';
+import { useRef } from 'react';
 function App() {
+	const login = useRef(null);
+
 	return (
 		<>
 			<Switch>
-				<Route exact path='/' component={Main} />
-				<Route path='/' render={() => <Header />} />
+				<Route exact path='/' render={() => <Main LoginBtn={login} />} />
+				<Route path='/' render={() => <Header LoginBtn={login} />} />
 			</Switch>
 
 			<Route path='/Members' component={Members} />
@@ -29,6 +32,8 @@ function App() {
 			<Route path='/Location' component={Location} />
 			<Route path='/Register' component={Register} />
 			<Footer />
+
+			<Login ref={login} />
 		</>
 	);
 }
