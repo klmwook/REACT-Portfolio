@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Login = forwardRef((props, ref) => {
-	const [Open, setOpen] = useState(true);
+	const [Open, setOpen] = useState(false);
 
 	useImperativeHandle(ref, () => {
 		return { toggle: () => setOpen(!Open) };
@@ -11,33 +11,32 @@ const Login = forwardRef((props, ref) => {
 	return (
 		<AnimatePresence>
 			{Open && (
-				<motion.nav id='mobilePanel' initial={{ opacity: 0, x: -200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} exit={{ opacity: 0, x: -200, transition: { duration: 0.5 } }}>
-					<div>
+				<motion.nav id='LoginPanel' initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} exit={{ opacity: 0, transition: { duration: 0.5 } }}>
+					<div className='con'>
 						<ul>
 							<li>
 								<h1>LOGIN</h1>
 							</li>
 							<li>
-								<input type='text' />
+								<input type='text' placeholder='아이디' />
 							</li>
 							<li>
-								<input type='text' />
+								<input type='password' placeholder='비밀번호' />
 							</li>
 							<li>
-								<input type='button' />
+								<input type='button' value='로그인' />
 							</li>
 						</ul>
-						<div>
+						<div className='input_area'>
 							<div className='left'>
-								<input type='text' />
-								<label htmlFor=''></label>
+								<input type='checkbox' id='save_id' />
+								<label htmlFor='save_id'>아이디 저장</label>
 							</div>
 							<div className='right'>
 								<span>회원가입</span>
-								<span>|</span>
-								<span>아이디/비밀번호 찾기</span>
 							</div>
 						</div>
+						<span className='btn_x' onClick={() => setOpen(false)}></span>
 					</div>
 				</motion.nav>
 			)}

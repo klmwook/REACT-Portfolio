@@ -55,7 +55,7 @@ function Header({ login }) {
 
 				<ul className='Login_Area'>
 					<li className='Login' onClick={() => login.current.toggle()}>
-						<Link to=''>Login</Link>
+						<Link to='#'>Login</Link>
 					</li>
 					<li className='btn'>
 						<Link to='/Register'>Register</Link>

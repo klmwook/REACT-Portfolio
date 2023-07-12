@@ -5,10 +5,10 @@ import Categories from './Categories';
 import Skills from './Skills';
 import Youtube from './Youtube';
 
-function Main() {
+function Main({ login }) {
 	return (
 		<main>
-			<Header />
+			<Header login={login} />
 			<Visual />
 			<Categories />
 			<Skills />
