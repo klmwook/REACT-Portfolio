@@ -13,6 +13,7 @@ import Location from './components/sub/Location';
 import Members from './components/sub/Members';
 import Register from './components/sub/Register';
 import Youtube from './components/sub/Youtube';
+import Community from './components/sub/Community';
 
 import './scss/style.scss';
 import Login from './components/common/Login';
@@ -30,6 +31,7 @@ function App() {
 			<Route path='/Members' component={Members} />
 			<Route path='/Youtube' component={Youtube} />
 			<Route path='/Location' component={Location} />
+			<Route path='/Community' component={Community} />
 			<Route path='/Register' component={Register} />
 			<Footer />
 

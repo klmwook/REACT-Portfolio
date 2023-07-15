@@ -92,8 +92,8 @@
 
 		.btn_x {
 			position: absolute;
-			top: 15px;
-			right: 30px;
+			top: 20px;
+			right: 40px;
 
 			&:hover {
 				&::before,
@@ -119,6 +119,56 @@
 
 			&::after {
 				transform: rotate(-45deg) translateX(0px);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	#LoginPanel {
+		.con {
+			width: 70%;
+			padding: 30px;
+			ul {
+				li {
+					h1 {
+						font-size: 30px;
+					}
+				}
+			}
+
+			.btn_x {
+				right: 40px;
+
+				&::before,
+				&::after {
+					height: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	#LoginPanel {
+		.con {
+			width: 90%;
+			padding: 20px;
+			ul {
+				li {
+					h1 {
+						font-size: 25px;
+					}
+				}
+			}
+
+			.btn_x {
+				right: 40px;
+
+				&::before,
+				&::after {
+					height: 20px;
+				}
 			}
 		}
 	}

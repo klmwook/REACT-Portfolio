@@ -42,7 +42,7 @@ function Header({ login }) {
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to='' activeClassName={active}>
+						<NavLink to='/Community' activeClassName={active}>
 							Community
 						</NavLink>
 					</li>
