@@ -124,10 +124,78 @@
 					align-items: center;
 					padding: 20px 0;
 					background: #fff;
+					margin-bottom: 30px;
+
+					&:last-child {
+						margin-bottom: 0px;
+					}
 
 					.txt {
 						width: 70%;
 						padding: 30px;
+
+						.input_Area {
+							width: 100%;
+							text-align: left;
+							position: relative;
+							margin: 15px 0;
+							cursor: pointer;
+
+							input {
+								font-size: 15px;
+								color: #1e1e2f;
+								width: 100%;
+								border: none;
+								border-bottom: solid #aaaaaa 1px;
+								padding-bottom: 10px;
+								padding-left: 10px;
+								position: relative;
+								background: none;
+								margin-right: 10px;
+
+								&::placeholder {
+									color: #aaaaaa;
+								}
+								&:focus {
+									outline: none;
+								}
+
+								&:focus ~ label,
+								&:valid ~ label {
+									font-size: 16px;
+									bottom: 40px;
+									color: #666;
+									font-weight: bold;
+								}
+
+								&:focus ~ span,
+								&:valid ~ span {
+									width: 100%;
+								}
+							}
+
+							label {
+								position: absolute;
+								color: #aaa;
+								left: 10px;
+								font-size: 20px;
+								bottom: 8px;
+								transition: all 0.2s;
+							}
+						}
+
+						textarea {
+							width: 100%;
+							height: auto;
+							padding: 15px;
+							color: #1e1e2f;
+							font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+							font-weight: 400;
+							resize: none;
+							margin-top: 15px;
+							outline: none;
+							border: 1px solid #aaa;
+						}
 
 						h2 {
 							padding: 10px 0;
@@ -148,6 +216,7 @@
 						justify-content: center;
 						gap: 10px;
 						flex-wrap: wrap;
+						margin-right: 15px;
 
 						button {
 							width: 100px;
@@ -181,6 +250,99 @@
 							&:hover:after {
 								background: #000;
 								transform: scale(1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	#Sub_Community {
+		.wrap {
+			.contents {
+				.Insert_Area {
+					.input_Area {
+						input {
+							font-size: 12px;
+
+							&:focus ~ label,
+							&:valid ~ label {
+								font-size: 12px;
+							}
+						}
+
+						label {
+							font-size: 14px;
+						}
+					}
+
+					textarea {
+						font-size: 12px;
+					}
+
+					.btn_Area {
+						padding: 15px 0;
+						button {
+							width: 80px;
+							height: 30px;
+							font-size: 13px;
+							margin-right: 15px;
+						}
+					}
+				}
+
+				.Show_Area {
+					padding: 40px 20px;
+
+					article {
+						flex-wrap: wrap;
+						padding: 20px 0;
+						margin-bottom: 30px;
+
+						.txt {
+							width: 100%;
+							padding: 30px;
+
+							.input_Area {
+								input {
+									font-size: 12px;
+
+									&:focus ~ label,
+									&:valid ~ label {
+										font-size: 12px;
+									}
+								}
+
+								label {
+									font-size: 14px;
+								}
+							}
+
+							textarea {
+								font-size: 12px;
+							}
+
+							h2 {
+								font-size: 16px;
+							}
+
+							p {
+								font-size: 12px;
+							}
+						}
+						.btnSet {
+							width: 100%;
+							justify-content: flex-end;
+							margin-right: 15px;
+
+							button {
+								width: 80px;
+								height: 30px;
+								font-size: 13px;
+								margin-right: 0px;
 							}
 						}
 					}
