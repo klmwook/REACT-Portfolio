@@ -17,9 +17,17 @@ import Community from './components/sub/Community';
 
 import './scss/style.scss';
 import Login from './components/common/Login';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { fetchFlickr } from './redux/flickrSlice';
+import { useDispatch } from 'react-redux';
+
 function App() {
 	const login = useRef(null);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchFlickr({ type: 'user', user: '198489363@N07' }));
+	}, [dispatch]);
 
 	return (
 		<>
@@ -33,6 +41,8 @@ function App() {
 			<Route path='/Location' component={Location} />
 			<Route path='/Community' component={Community} />
 			<Route path='/Register' component={Register} />
+			<Route path='/Gallery' component={Gallery} />
+
 			<Footer />
 
 			<Login ref={login} />
