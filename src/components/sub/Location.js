@@ -111,7 +111,7 @@ function Location() {
 
 	return (
 		<>
-			<Layout id={'Sub_Location'} name={'Location'}>
+			<Layout id={'Sub_Location'} title={'Location'}>
 				<div className='contents'>
 					<div className='Contact_Us'>
 						<div className='left'>

@@ -6,12 +6,10 @@ import { HashRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 
 import flickrReducer from './redux/flickrSlice';
-import loadingReducer from './redux/LoadingSlice';
 
 const store = configureStore({
 	reducer: {
 		flickr: flickrReducer,
-		loading: loadingReducer,
 	},
 });
 

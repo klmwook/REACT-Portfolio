@@ -84,7 +84,7 @@ function Community() {
 
 	return (
 		<>
-			<Layout id={'Sub_Community'} name={'Community'}>
+			<Layout id={'Sub_Community'} title={'Community'}>
 				<div className='contents'>
 					<div className='Insert_Area'>
 						<div className='input_Area'>

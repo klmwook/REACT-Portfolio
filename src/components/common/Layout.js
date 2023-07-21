@@ -1,8 +1,13 @@
-import { useEffect, useRef } from 'react';
-import { UseSelector, useSelector } from 'react-redux/';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-function Layout({ id, name, Loading = false, children }) {
+const Layout = forwardRef(({ id, title, children }, ref) => {
 	const Sub_Layout = useRef(null);
+	const [Loading, setLoading] = useState(false);
+
+	//자식 컴포넌트가 아닌 특정 커스텀 객체를 부모로 전달
+	useImperativeHandle(ref, () => {
+		return { Open: () => setLoading(true), Close: () => setLoading(false) };
+	});
 
 	useEffect(() => {
 		Sub_Layout.current.classList.add('on');
@@ -14,7 +19,7 @@ function Layout({ id, name, Loading = false, children }) {
 				<div className='wrap'>
 					<div className='title'>
 						<div className='main'>
-							<h1>{name}</h1>
+							<h1>{title}</h1>
 						</div>
 						<div className='sub'>
 							<h2>
@@ -34,6 +39,6 @@ function Layout({ id, name, Loading = false, children }) {
 			)}
 		</>
 	);
-}
+});
 
 export default Layout;

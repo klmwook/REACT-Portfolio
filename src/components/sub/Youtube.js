@@ -23,7 +23,7 @@ function Youtube() {
 
 	return (
 		<>
-			<Layout id={'Sub_Youtube'} name={'Youtube'}>
+			<Layout id={'Sub_Youtube'} title={'Youtube'}>
 				<div className='contents'>
 					<ul id='youtube_Result'>
 						{Vids.map((Vid, idx) => {

@@ -9,21 +9,39 @@ import Layout from '../common/Layout';
 */
 
 function Gallery() {
-	const dispatch = useDispatch();
 	const Items = useSelector((store) => store.flickr.data);
-	const Loading = useSelector((store) => console.log(store.loading));
-
 	const wrap = useRef(null);
+	const Loading = useRef(null);
+	const searchInput = useRef('');
+	const enableEvent = useRef(true);
+	const counter = useRef(0);
+
+	const resetGallery = (e) => {
+		enableEvent.current = false;
+		Loading.current.Open();
+		wrap.current.classList.remove('on');
+	};
 
 	useEffect(() => {
-		//Loading.current.classList.add('off');
-		//dispatch(Loading?.open());
+		//Loading.current.Open();
+		enableEvent.current = true;
 		wrap.current.classList.add('on');
 	}, [wrap]);
 
 	return (
 		<>
-			<Layout id={'Sub_Gallery'} name={'Gallery'}>
+			<Layout id={'Sub_Gallery'} title={'Gallery'} ref={Loading}>
+				<div className='Search_Area'>
+					<div className='input_Area'>
+						<input type='text' required ref={searchInput} />
+						<label>검색어 입력</label>
+						<button>Search</button>
+					</div>
+					<div className='button_Area'>
+						<button className='int'>Interest</button>
+						<button className='my'>My</button>
+					</div>
+				</div>
 				<div className='contents' ref={wrap}>
 					<ul>
 						{Items.map((item, idx) => {

@@ -118,7 +118,7 @@ function Register() {
 
 	return (
 		<>
-			<Layout id={'Sub_Register'} name={'Register'}>
+			<Layout id={'Sub_Register'} title={'Register'}>
 				<div className='contents'>
 					<div className='form_area'>
 						<form onSubmit={handleSubmit}>
