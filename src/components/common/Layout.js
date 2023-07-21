@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { UseSelector, useSelector } from 'react-redux/';
 
-function Layout({ id, name, children }) {
+function Layout({ id, name, Loading = false, children }) {
 	const Sub_Layout = useRef(null);
 
 	useEffect(() => {
@@ -25,6 +26,12 @@ function Layout({ id, name, children }) {
 					{children}
 				</div>
 			</section>
+
+			{Loading && (
+				<div className='loading_Area'>
+					<img src={`${process.env.PUBLIC_URL}/img/sub/loading.gif`} alt='loading' className='loading' />
+				</div>
+			)}
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { UseSelector, useSelector } from 'react-redux/';
+import { useSelector, useDispatch } from 'react-redux/';
 import Layout from '../common/Layout';
 
 /* 
@@ -9,32 +9,48 @@ import Layout from '../common/Layout';
 */
 
 function Gallery() {
-	useSelector((store) => console.log(store));
+	const dispatch = useDispatch();
+	const Items = useSelector((store) => store.flickr.data);
+	const Loading = useSelector((store) => console.log(store.loading));
+
+	const wrap = useRef(null);
+
+	useEffect(() => {
+		//Loading.current.classList.add('off');
+		//dispatch(Loading?.open());
+		wrap.current.classList.add('on');
+	}, [wrap]);
 
 	return (
 		<>
 			<Layout id={'Sub_Gallery'} name={'Gallery'}>
-				<div className='contents'>
+				<div className='contents' ref={wrap}>
 					<ul>
-						<li>
-							<div class='Img_Area'>
-								<img src='' alt='IMG' />
-							</div>
-							<div class='Img_Title'>
-								<p>Title 영역 입니다.</p>
-							</div>
-							<div class='Img_UserInfo'>
-								<img src='' alt='IMG' />
-								<span>Hello</span>
-							</div>
-						</li>
-						<li></li>
-						<li></li>
-						<li></li>
+						{Items.map((item, idx) => {
+							return (
+								<li key={idx}>
+									<div className='Img_Area'>
+										<img
+											className='thumb'
+											src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+											alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+										/>
+									</div>
+									<div className='Img_Title'>
+										<p>${item.title === '' ? 'Have a Good day!!' : item.title}</p>
+									</div>
+									<div className='Img_UserInfo'>
+										<img
+											src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
+											alt={item.owner}
+											onError={(e) => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
+										/>
+										<span className='userid'>${item.owner}</span>
+									</div>
+								</li>
+							);
+						})}
 					</ul>
-				</div>
-				<div class='loading_Area'>
-					<img src={`${process.env.PUBLIC_URL}/img/sub/loading.gif`} alt='loading' class='loading' />
 				</div>
 			</Layout>
 		</>

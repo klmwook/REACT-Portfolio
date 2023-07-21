@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import flickrReducer from './redux/flickrSlice';
 import { configureStore } from '@reduxjs/toolkit';
+
+import flickrReducer from './redux/flickrSlice';
+import loadingReducer from './redux/LoadingSlice';
 
 const store = configureStore({
 	reducer: {
 		flickr: flickrReducer,
+		loading: loadingReducer,
 	},
 });
 
