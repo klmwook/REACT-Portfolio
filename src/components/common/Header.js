@@ -3,11 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 //font awesome을 사용하기 위한 import
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
+import { toggle } from '../../redux/menuSlice';
 
 function Header({ login }) {
+	const dispatch = useDispatch();
 	const active = 'on';
 	const hedaer = useRef(null);
-	const toggleLogin = useRef(null);
 
 	useEffect(() => {
 		hedaer.current.classList.add('on');
@@ -21,11 +23,11 @@ function Header({ login }) {
 				</h1>
 
 				<ul className='menu'>
-					<li>
+					{/* <li>
 						<NavLink to='' activeClassName={active}>
 							Info
 						</NavLink>
-					</li>
+					</li> */}
 					<li>
 						<NavLink to='/Members' activeClassName={active}>
 							Members
@@ -64,7 +66,7 @@ function Header({ login }) {
 
 				{/* 모바일 전용 버튼 */}
 				<Link to='' id='mo_menu' className='btnCall'>
-					<FontAwesomeIcon icon={faBars} onClick={() => alert('mobile')} />
+					<FontAwesomeIcon icon={faBars} onClick={() => dispatch(toggle())} />
 				</Link>
 			</header>
 		</>

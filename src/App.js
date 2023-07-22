@@ -20,6 +20,7 @@ import Login from './components/common/Login';
 import { useEffect, useRef } from 'react';
 import { fetchFlickr } from './redux/flickrSlice';
 import { useDispatch } from 'react-redux';
+import Menu from './components/common/Menu';
 
 function App() {
 	const login = useRef(null);
@@ -46,6 +47,7 @@ function App() {
 			<Footer />
 
 			<Login ref={login} />
+			<Menu ref={login} />
 		</>
 	);
 }

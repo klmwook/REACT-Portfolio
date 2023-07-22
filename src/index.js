@@ -6,10 +6,12 @@ import { HashRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 
 import flickrReducer from './redux/flickrSlice';
+import menuReducer from './redux/menuSlice';
 
 const store = configureStore({
 	reducer: {
 		flickr: flickrReducer,
+		menu: menuReducer,
 	},
 });
 
