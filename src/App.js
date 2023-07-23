@@ -47,7 +47,7 @@ function App() {
 			<Footer />
 
 			<Login ref={login} />
-			<Menu ref={login} />
+			<Menu login={login} />
 		</>
 	);
 }

@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 function Menu({ login }) {
 	const dispatch = useDispatch();
-	const active = { color: 'aqua' };
+	const active = 'on';
 	const menu = useSelector((store) => store.menu.open);
 
 	useEffect(() => {
@@ -22,16 +22,15 @@ function Menu({ login }) {
 			{menu && (
 				<motion.nav
 					id='mobilePanel'
-					initial={{ opacity: 0, x: -200 }}
-					animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-					exit={{ opacity: 0, x: -200, transition: { duration: 0.5 } }}
-					onClick={() => dispatch(close())}
+					initial={{ opacity: 0, y: '-100vh' }}
+					animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+					exit={{ opacity: 0, y: '-100vh', transition: { duration: 0.5 } }}
 				>
-					<h1>
+					<h1 onClick={() => dispatch(close())}>
 						<Link to='/'>LOGO</Link>
 					</h1>
 
-					<ul id='gnbMo'>
+					<ul id='gnbMo' onClick={() => dispatch(close())}>
 						<li>
 							<NavLink to='/Members' activeClassName={active}>
 								Members
@@ -57,7 +56,13 @@ function Menu({ login }) {
 								Location
 							</NavLink>
 						</li>
-						<li className='Login' onClick={() => login.current.toggle()}>
+						<li
+							className='Login'
+							onClick={() => {
+								dispatch(close());
+								login.current.toggle();
+							}}
+						>
 							<Link to='#'>Login</Link>
 						</li>
 						<li className='btn'>
@@ -66,6 +71,8 @@ function Menu({ login }) {
 							</NavLink>
 						</li>
 					</ul>
+
+					<span className='btn_x' onClick={() => dispatch(close())}></span>
 				</motion.nav>
 			)}
 		</AnimatePresence>

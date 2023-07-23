@@ -65,7 +65,7 @@ function Header({ login }) {
 				</ul>
 
 				{/* 모바일 전용 버튼 */}
-				<Link to='' id='mo_menu' className='btnCall'>
+				<Link to='#' id='mo_menu' className='btnCall'>
 					<FontAwesomeIcon icon={faBars} onClick={() => dispatch(toggle())} />
 				</Link>
 			</header>

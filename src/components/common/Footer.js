@@ -11,9 +11,6 @@ function Footer() {
 						<div className='sitemap_Area'>
 							<ul>
 								<li>
-									<span>Info</span>
-								</li>
-								<li>
 									<span>Members</span>
 								</li>
 								<li>
