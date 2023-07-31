@@ -1,10 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-function Youtube() {
+function Youtube({ Scrolled, Pos }) {
+	const Youtube_Wrap = useRef(null);
 	const Youtube_List = useRef(null);
 	const Youtube_Prev = useRef(null);
 	const Youtube_Next = useRef(null);
+
+	const base = window.innerHeight / 2;
+
+	window.addEventListener('scroll', () => {
+		// console.log('Scrolled : ' + Scrolled);
+		if (Scrolled >= Pos - base) {
+			Youtube_Wrap.current.classList.add('on');
+		}
+	});
 
 	function CgYouList(type) {
 		if (type === 'prev') {
@@ -24,9 +34,9 @@ function Youtube() {
 
 	return (
 		<>
-			<section id='youtube'>
+			<section id='youtube' className='myScroll'>
 				{/* on 지워야 됨 */}
-				<div className='wrap on'>
+				<div className='wrap' ref={Youtube_Wrap}>
 					<h1>YouTube List</h1>
 					<ul className='List' id='Youtube_List' ref={Youtube_List}>
 						<li>

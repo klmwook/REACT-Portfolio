@@ -1,11 +1,21 @@
-import React from 'react';
+import { useRef } from 'react';
 
-function Skills() {
+function Skills({ Scrolled, Pos }) {
+	const Skills_Wrap = useRef(null);
+
+	const base = window.innerHeight / 2;
+
+	window.addEventListener('scroll', () => {
+		if (Scrolled >= Pos - base) {
+			Skills_Wrap.current.classList.add('on');
+			Skills_Wrap.current.querySelector('.number_area').classList.add('on');
+		}
+	});
+
 	return (
 		<>
-			<section id='skills'>
-				<div className='wrap on'>
-					{/* on 지워야 됨 */}
+			<section id='skills' className='myScroll'>
+				<div className='wrap' ref={Skills_Wrap}>
 					<article className='top'>
 						<div className='left'>
 							<h1>
@@ -16,8 +26,7 @@ function Skills() {
 						</div>
 						<div className='right'>
 							<p>The modern labor market dictates its own terms. Today, to be a competitive specialist requires more than professional skills.</p>
-							{/* on 지워야 됨 */}
-							<div className='number_area on'>
+							<div className='number_area'>
 								<div className='number_area_left'>
 									<h1>10</h1>
 									<h2>

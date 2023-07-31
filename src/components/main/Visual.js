@@ -11,7 +11,7 @@ function Visual() {
 
 	return (
 		<>
-			<section id='visual'>
+			<section id='visual' className='myScroll'>
 				<div className='wrap'>
 					<div className='left' ref={Visual_Left}>
 						<h1>
