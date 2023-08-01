@@ -19,6 +19,7 @@ import './scss/style.scss';
 import Login from './components/common/Login';
 import { useEffect, useRef } from 'react';
 import { fetchFlickr } from './redux/flickrSlice';
+import { fetchMembers } from './redux/membersSlice';
 import { useDispatch } from 'react-redux';
 import Menu from './components/common/Menu';
 
@@ -27,6 +28,7 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		dispatch(fetchMembers());
 		dispatch(fetchFlickr({ type: 'user', user: '198489363@N07' }));
 	}, [dispatch]);
 

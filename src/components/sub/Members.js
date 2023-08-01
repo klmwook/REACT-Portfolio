@@ -1,17 +1,12 @@
-import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import React, { useEffect, useRef } from 'react';
 
 function Members() {
 	const Tab_Area = useRef(null);
-	const [Members, setMembers] = useState([]);
+	const Members = useSelector((store) => store.members.data);
 
-	//최초의 데이터를 가져와야 되기 때문에 useEffect를 사용
+	//on classList를 넣어야 되서 useEffect를 추가하였음.
 	useEffect(() => {
-		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((data) => {
-			console.log(data);
-			setMembers(data.data.members);
-		});
-
 		Tab_Area.current.classList.add('on');
 	}, []);
 
