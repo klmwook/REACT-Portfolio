@@ -1,15 +1,23 @@
+import { useEffect } from 'react';
 import { useRef } from 'react';
 
 function Skills({ Scrolled, Pos }) {
 	const Skills_Wrap = useRef(null);
-
 	const base = window.innerHeight / 2;
 
-	window.addEventListener('scroll', () => {
+	const setSkills = () => {
 		if (Scrolled >= Pos - base) {
 			Skills_Wrap.current.classList.add('on');
 			Skills_Wrap.current.querySelector('.number_area').classList.add('on');
 		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', setSkills);
+
+		return () => {
+			window.removeEventListener('scroll', setSkills);
+		};
 	});
 
 	return (

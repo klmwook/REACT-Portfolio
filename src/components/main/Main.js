@@ -5,11 +5,19 @@ import Categories from './Categories';
 import Skills from './Skills';
 import Youtube from './Youtube';
 import Btns from './Btns';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Main({ login }) {
 	const [Scrolled, setScrolled] = useState(0);
 	const [Pos, setPos] = useState([]);
+
+	//메뉴를 최상단으로 이동 시킴
+	useEffect(() => {
+		window.onbeforeunload = function pushRefresh() {
+			window.scrollTo(0, 0);
+		};
+	}, []);
+
 	return (
 		<main>
 			<Header login={login} />

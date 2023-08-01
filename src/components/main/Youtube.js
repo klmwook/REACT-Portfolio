@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Youtube({ Scrolled, Pos }) {
@@ -9,11 +10,18 @@ function Youtube({ Scrolled, Pos }) {
 
 	const base = window.innerHeight / 2;
 
-	window.addEventListener('scroll', () => {
-		// console.log('Scrolled : ' + Scrolled);
+	const setYoutube = () => {
 		if (Scrolled >= Pos - base) {
 			Youtube_Wrap.current.classList.add('on');
 		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', setYoutube);
+
+		return () => {
+			window.removeEventListener('scroll', setYoutube);
+		};
 	});
 
 	function CgYouList(type) {

@@ -97,6 +97,15 @@ $categories: ('Categories01.png', 'Categories02.png', 'Categories03.png', 'Categ
 					transform: translateY(0);
 				}
 
+				&.none {
+					display: none;
+				}
+
+				&.selected {
+					opacity: 1;
+					transform: translateY(0);
+				}
+
 				&:hover {
 					strong {
 						color: #97c680;
