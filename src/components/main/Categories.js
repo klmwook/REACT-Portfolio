@@ -67,7 +67,7 @@ function Categories({ Scrolled, Pos }) {
 					<ul className='img'>
 						{infos.map((info, idx) => {
 							return (
-								<li className={first && Index === 0 ? 'on' : '' || idx === Index - 1 ? 'selected' : 'none'}>
+								<li key={idx} className={first && Index === 0 ? 'on' : '' || idx === Index - 1 ? 'selected' : 'none'}>
 									<div className={`img img${idx + 1}`}></div>
 									<strong>{info.title}</strong>
 									<p>{info.date}</p>

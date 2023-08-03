@@ -3,6 +3,15 @@ import React, { useEffect, useRef } from 'react';
 function Visual() {
 	const Visual_Left = useRef(null);
 	const Visual_Right = useRef(null);
+	const Visual_Search = useRef(null);
+
+	const GoogleSearch = () => {
+		if (Visual_Search.current.value === '') {
+			alert('검색어를 입력 해 주세요.');
+		} else {
+			window.open(`https://www.google.com/search?q=${Visual_Search.current.value}`, '_blank');
+		}
+	};
 
 	useEffect(() => {
 		Visual_Left.current.classList.add('on');
@@ -22,12 +31,12 @@ function Visual() {
 							Grow.
 						</h1>
 						<div className='search_area'>
-							<input type='text' placeholder='Find your passion' className='input_text' />
+							<input type='text' placeholder='Search in Google' className='input_text' ref={Visual_Search} />
 							<div className='submit_area'>
 								<div className='checkbtn_area'>
 									<img src={`${process.env.PUBLIC_URL}/img/main/ico-cheked.svg`} alt='ico-cheked.svg' />
 								</div>
-								<input type='text' />
+								<input type='text' onClick={() => GoogleSearch()} />
 							</div>
 						</div>
 					</div>

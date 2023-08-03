@@ -13,7 +13,6 @@ function Btns({ setScrolled, setPos }) {
 		for (const sec of secs) pos.current.push(sec.offsetTop);
 		setNum(pos.current.length);
 		setPos(pos.current);
-		console.log(pos.current);
 	}, []);
 
 	const activation = useCallback(() => {
