@@ -1,13 +1,15 @@
-import { useSelector } from 'react-redux';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useMemberQuery } from '../../hooks/useMemberQuery';
 
 function Members() {
+	const [Mounted, setMounted] = useState(true);
+	const { data: Members, isSuccess } = useMemberQuery();
 	const Tab_Area = useRef(null);
-	const Members = useSelector((store) => store.members.data);
 
 	//on classList를 넣어야 되서 useEffect를 추가하였음.
 	useEffect(() => {
 		Tab_Area.current.classList.add('on');
+		return () => setMounted(false);
 	}, []);
 
 	return (
@@ -23,30 +25,32 @@ function Members() {
 					</div>
 
 					<ul className='Tab_Area' ref={Tab_Area}>
-						{Members.map((Member, idx) => {
-							return (
-								<li key={idx}>
-									<div className='pic_Area'>
-										<div className='pic'>
-											<img src={`${process.env.PUBLIC_URL}/img/sub/${Member.pic}`} alt='' className='pic_img' />
+						{isSuccess &&
+							Mounted &&
+							Members.map((Member, idx) => {
+								return (
+									<li key={idx}>
+										<div className='pic_Area'>
+											<div className='pic'>
+												<img src={`${process.env.PUBLIC_URL}/img/sub/${Member.pic}`} alt='' className='pic_img' />
+											</div>
 										</div>
-									</div>
-									<div className='Name'>{Member.name}</div>
-									<div className='Position'>{Member.position}</div>
-									<div className='SNS_Area'>
-										<div className='SNS'>
-											<div className='icon_img1'></div>
+										<div className='Name'>{Member.name}</div>
+										<div className='Position'>{Member.position}</div>
+										<div className='SNS_Area'>
+											<div className='SNS'>
+												<div className='icon_img1'></div>
+											</div>
+											<div className='SNS'>
+												<div className='icon_img2'></div>
+											</div>
+											<div className='SNS'>
+												<div className='icon_img3'></div>
+											</div>
 										</div>
-										<div className='SNS'>
-											<div className='icon_img2'></div>
-										</div>
-										<div className='SNS'>
-											<div className='icon_img3'></div>
-										</div>
-									</div>
-								</li>
-							);
-						})}
+									</li>
+								);
+							})}
 					</ul>
 				</div>
 			</section>

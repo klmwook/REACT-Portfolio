@@ -19,24 +19,28 @@ import './scss/style.scss';
 import Login from './components/common/Login';
 import { useEffect, useRef } from 'react';
 import { fetchFlickr } from './redux/flickrSlice';
-import { fetchMembers } from './redux/membersSlice';
 import { fetchYoutube } from './redux/youtubeSlice';
 
 import { useDispatch } from 'react-redux';
 import Menu from './components/common/Menu';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
 function App() {
 	const login = useRef(null);
+
+	const queryClient = new QueryClient();
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
-		dispatch(fetchMembers());
 		dispatch(fetchFlickr({ type: 'user', user: '198489363@N07' }));
 	}, [dispatch]);
 
 	return (
-		<>
+		<QueryClientProvider client={queryClient}>
 			<Switch>
 				<Route exact path='/' render={() => <Main login={login} />} />
 				<Route path='/' render={() => <Header login={login} />} />
@@ -53,7 +57,8 @@ function App() {
 
 			<Login ref={login} />
 			<Menu login={login} />
-		</>
+			<ReactQueryDevtools />
+		</QueryClientProvider>
 	);
 }
 
