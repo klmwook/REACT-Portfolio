@@ -1,15 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Layout from '../common/Layout';
 import Anime from '../../asset/anime';
 import emailjs from '@emailjs/browser';
+import { useThrottle } from '../../hooks/useThrottle';
 
 function Location() {
 	//카카오 톡 보여주는 함수
 	const map = useRef(null);
 	const map_list = useRef(null);
 	const [Index, setIndex] = useState(0);
+	const [Location, setLocation] = useState(null);
 	const { kakao } = window;
-	const infos = [
+	const infos = useRef([
 		{
 			title: 'Seoul Head Office',
 			phone: '010 - 5555 - 6666',
@@ -34,32 +36,29 @@ function Location() {
 			imgSize: new kakao.maps.Size(64, 64),
 			imgPos: { offset: new kakao.maps.Point(32, 64) },
 		},
-	];
-	const mapOption = {
-		center: infos[Index].position, // 지도의 중심좌표
-		level: 3, // 지도의 확대 레벨
-	};
-	const imgSrc = infos[Index].imgSrc;
-	const imgSize = infos[Index].imgSize;
-	const imgPos = infos[Index].imgPos;
-	const markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize, imgPos);
-	const marker = new kakao.maps.Marker({ position: mapOption.center, image: markerImg });
+	]);
+
+	const marker = useMemo(() => {
+		return new kakao.maps.Marker({
+			position: infos.current[Index].position,
+			image: new kakao.maps.MarkerImage(infos.current[Index].imgSrc, infos.current[Index].imgSize, infos.current[Index].imgPos),
+		});
+	}, [Index, kakao]);
+
+	const setCenter = useCallback(() => {
+		Location?.setCenter(infos.current[Index].position);
+	}, [Index, Location]);
+
+	const setCenter2 = useThrottle(setCenter);
 
 	useEffect(() => {
 		map.current.innerHTML = '';
-		const mapInstance = new kakao.maps.Map(map.current, mapOption);
+		const mapInstance = new kakao.maps.Map(map.current, { center: infos.current[Index].position, level: 3 });
 		marker.setMap(mapInstance);
-
 		mapInstance.setZoomable(false);
-
 		mapInstance.addControl(new kakao.maps.MapTypeControl(), kakao.maps.ControlPosition.TOPRIGHT);
 		mapInstance.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
-
-		const setCenter = () => {
-			mapInstance.setCenter(infos[Index].position);
-		};
-
-		window.addEventListener('resize', setCenter);
+		setLocation(mapInstance);
 
 		const form_input = contact_form.current.querySelectorAll('.input_Area');
 
@@ -70,14 +69,18 @@ function Location() {
 		});
 
 		return () => {
-			window.removeEventListener('resize', setCenter);
 			form_input.forEach((input, idx) => {
 				input.removeEventListener('click', () => {
 					input.querySelector('input').focus();
 				});
 			});
 		};
-	}, [Index]);
+	}, [kakao, Index, marker]);
+
+	useEffect(() => {
+		window.addEventListener('resize', setCenter2);
+		return () => window.removeEventListener('resize', setCenter2);
+	}, [setCenter2]);
 
 	//이메일 전송 로직
 	const contact_form = useRef(null);
@@ -161,7 +164,7 @@ function Location() {
 						</div>
 						<div className='right'>
 							<ul id='map_list' ref={map_list}>
-								{infos.map((info, idx) => {
+								{infos.current.map((info, idx) => {
 									return (
 										<li
 											key={idx}

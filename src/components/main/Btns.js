@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback } from 'react';
 import Anime from '../../asset/anime';
 import { useEffect } from 'react';
+import { useThrottle } from '../../hooks/useThrottle';
 
 function Btns({ setScrolled, setPos }) {
 	const btnRef = useRef(null);
@@ -16,6 +17,7 @@ function Btns({ setScrolled, setPos }) {
 	}, []);
 
 	const activation = useCallback(() => {
+		console.log('activation');
 		const base = -window.innerHeight / 2;
 		const scroll = window.scrollY;
 		const btns = btnRef.current.children;
@@ -31,6 +33,9 @@ function Btns({ setScrolled, setPos }) {
 		});
 	}, []);
 
+	const getPos_Throttle = useThrottle(getPos);
+	const activation_Throttle = useThrottle(activation);
+
 	const changeScroll = useCallback(() => {
 		const scroll = window.scrollY;
 		setScrolled(scroll);
@@ -38,18 +43,18 @@ function Btns({ setScrolled, setPos }) {
 
 	useEffect(() => {
 		getPos();
-		window.addEventListener('resize', getPos);
-		window.addEventListener('scroll', activation);
+		window.addEventListener('resize', getPos_Throttle);
+		window.addEventListener('scroll', activation_Throttle);
 		window.addEventListener('scroll', changeScroll);
 		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
 		return () => {
-			window.removeEventListener('resize', getPos);
-			window.removeEventListener('scroll', activation);
+			window.removeEventListener('resize', getPos_Throttle);
+			window.removeEventListener('scroll', activation_Throttle);
 			window.removeEventListener('scroll', changeScroll);
 			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 		};
-	}, [getPos, activation, changeScroll]);
+	}, [getPos, getPos_Throttle, activation_Throttle, changeScroll]);
 
 	return (
 		<ul className='btnNavi' ref={btnRef}>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Masonry from 'react-masonry-component';
-import { fetchFlickr } from '../../redux/flickrSlice';
 import Layout from '../common/Layout';
 import Modal from '../common/Modal';
 import { useFlickrQuery } from '../../hooks/useFlickrQuery';
