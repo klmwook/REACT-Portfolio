@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, memo } from 'react';
 import Anime from '../../asset/anime';
 import { useEffect } from 'react';
 import { useThrottle } from '../../hooks/useThrottle';
@@ -81,4 +81,4 @@ function Btns({ setScrolled, setPos }) {
 	);
 }
 
-export default Btns;
+export default memo(Btns);
