@@ -2,6 +2,7 @@ $categories: ('Categories01.png', 'Categories02.png', 'Categories03.png', 'Categ
 
 #categories {
 	width: 100%;
+	min-height: 686px;
 	padding: 64px 80px;
 
 	.wrap {
@@ -150,6 +151,8 @@ $categories: ('Categories01.png', 'Categories02.png', 'Categories03.png', 'Categ
 
 @media screen and (max-width: $pc_small) {
 	#categories {
+		min-height: 1090px;
+
 		.wrap {
 			ul.img {
 				li {
@@ -169,6 +172,7 @@ $categories: ('Categories01.png', 'Categories02.png', 'Categories03.png', 'Categ
 
 @media screen and (max-width: $tablet) {
 	#categories {
+		min-height: 1947px;
 		padding: 40px 60px;
 
 		.wrap {

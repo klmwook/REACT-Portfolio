@@ -1,5 +1,6 @@
 #skills {
 	width: 100%;
+	min-height: 846px;
 	padding: 64px 80px;
 
 	.wrap {
@@ -187,6 +188,7 @@
 
 @media screen and (max-width: $pc_small) {
 	#skills {
+		min-height: 928px;
 		.wrap {
 			.top {
 				width: 100%;
@@ -306,6 +308,7 @@
 
 @media screen and (max-width: $mobile) {
 	#skills {
+		min-height: 935px;
 		.wrap {
 			.top {
 				.right {
