@@ -27,12 +27,6 @@ function Register() {
 		setVal({ ...Val, [name]: value });
 	};
 
-	const handleRadio = (e) => {
-		const { name, value } = e.target;
-
-		setVal({ ...Val, [name]: value });
-	};
-
 	const handleCheck = (e) => {
 		const { name } = e.target;
 		const inputs = e.target.parentElement.querySelectorAll('input');
@@ -52,10 +46,8 @@ function Register() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('현재 스테이트값', Val);
 		//check가 반환하는 인증 메세지가 있으면 해당 메세지를 화면에 출력하고 전송중지
 		//그렇지 않으면 인증 성공
-		console.log(check(Val));
 		setErr(check(Val));
 		setSubmit(true);
 	};
@@ -179,12 +171,12 @@ function Register() {
 												<label>Gender</label>
 											</th>
 											<td className='padding_top20' ref={radioGroup}>
-												<input type='radio' name='gender' value='male' id='male' onChange={handleRadio} />
+												<input type='radio' name='gender' value='male' id='male' onChange={handleChange} />
 												<label htmlFor='male' className='radio_label'>
 													Male
 												</label>
 
-												<input type='radio' name='gender' value='female' id='female' onChange={handleRadio} />
+												<input type='radio' name='gender' value='female' id='female' onChange={handleChange} />
 												<label htmlFor='female' className='radio_label'>
 													Female
 												</label>
