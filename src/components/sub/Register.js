@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Layout from '../common/Layout';
+import { useDebounce } from '../../hooks/useDebounce';
 
 function Register() {
 	const selectEl = useRef(null);
@@ -19,6 +20,8 @@ function Register() {
 	const [Val, setVal] = useState(initVal);
 	const [Err, setErr] = useState({});
 	const [Submit, setSubmit] = useState(false);
+
+	const DebouncedVal = useDebounce(Val);
 
 	const handleChange = (e) => {
 		//현재 입력하고 있는 input요소의 name,value값을 비구조화할당으로 뽑아서 출력
@@ -46,8 +49,6 @@ function Register() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//check가 반환하는 인증 메세지가 있으면 해당 메세지를 화면에 출력하고 전송중지
-		//그렇지 않으면 인증 성공
 		setErr(check(Val));
 		setSubmit(true);
 	};
@@ -95,6 +96,12 @@ function Register() {
 		setVal(initVal);
 	};
 
+	const showErr = useCallback(() => {
+		console.log('showErr');
+		setSubmit(false);
+		setErr(check(DebouncedVal));
+	}, [DebouncedVal]);
+
 	useEffect(() => {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
@@ -105,8 +112,8 @@ function Register() {
 	}, [Err]);
 
 	useEffect(() => {
-		console.log(Val);
-	}, [Val]);
+		showErr();
+	}, [DebouncedVal, showErr]);
 
 	return (
 		<>
