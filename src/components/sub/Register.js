@@ -105,12 +105,13 @@ function Register() {
 	useEffect(() => {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
-			alert('모든 인증을 통과했습니다. ');
+			alert('모든 인증을 통과했습니다.  ');
 			//history.push('/');
 			resetForm();
 		}
 	}, [Err]);
 
+	//Debounce 추가
 	useEffect(() => {
 		showErr();
 	}, [DebouncedVal, showErr]);
