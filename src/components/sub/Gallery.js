@@ -17,6 +17,7 @@ function Gallery() {
 	const counter = useRef(0);
 	const firstLoaded = useRef(true);
 	const isUser = useRef(true);
+	const isNow = useRef('user');
 
 	const resetGallery = (e) => {
 		enableEvent.current = false;
@@ -26,17 +27,19 @@ function Gallery() {
 
 	//인기있는 갤러리 모음
 	const showInterest = (e) => {
-		if (!enableEvent.current) return;
+		if (!enableEvent.current || isNow.current === 'interest') return;
 		resetGallery(e);
 		setOpt({ type: 'interest' });
+		isNow.current = 'interest';
 		isUser.current = false;
 	};
 
 	//내 갤러리 모음
 	const showMine = (e) => {
-		if (!enableEvent.current) return;
+		if (!enableEvent.current || isNow.current === 'user') return;
 		resetGallery(e);
 		setOpt({ type: 'user', user: '198489363@N07' });
+		isNow.current = 'user';
 		isUser.current = true;
 	};
 
@@ -47,6 +50,7 @@ function Gallery() {
 
 		resetGallery(e);
 		setOpt({ type: 'search', tags: tag });
+		isNow.current = 'search';
 		searchInput.current.value = '';
 		isUser.current = false;
 	};
