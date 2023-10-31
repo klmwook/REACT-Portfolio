@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function Visual() {
 	const Visual_Left = useRef(null);
 	const Visual_Right = useRef(null);
 	const Visual_Search = useRef(null);
-	let onFocus = 0;
+	const [onFocus, setonFocus] = useState(0);
 
 	const GoogleSearch = () => {
 		if (Visual_Search.current.value === '') {
@@ -58,10 +58,9 @@ function Visual() {
 							return (
 								<div
 									key={idx}
-									className={onFocus === idx ? 'picture on' : 'picture'}
+									className={idx === onFocus ? 'picture on' : 'picture'}
 									onMouseOver={() => {
-										onFocus = idx;
-										alert(onFocus);
+										setonFocus(idx);
 									}}
 								>
 									<h1>{info.content}</h1>

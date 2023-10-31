@@ -154,6 +154,7 @@ $visuals: ('visual01', 'visual02', 'visual03');
 				//border: 1px solid red;
 				border-radius: 20px;
 				position: relative;
+				transition: 1s;
 
 				&.on {
 					flex: 3;
