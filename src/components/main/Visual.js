@@ -4,6 +4,7 @@ function Visual() {
 	const Visual_Left = useRef(null);
 	const Visual_Right = useRef(null);
 	const Visual_Search = useRef(null);
+	let onFocus = 0;
 
 	const GoogleSearch = () => {
 		if (Visual_Search.current.value === '') {
@@ -12,6 +13,18 @@ function Visual() {
 			window.open(`https://www.google.com/search?q=${Visual_Search.current.value}`, '_blank');
 		}
 	};
+
+	const infos = [
+		{
+			content: 'Lorem ipsum dolor sit amet.',
+		},
+		{
+			content: 'Lorem ipsum',
+		},
+		{
+			content: 'Lorem ipsum dolor',
+		},
+	];
 
 	useEffect(() => {
 		Visual_Left.current.classList.add('on');
@@ -41,15 +54,20 @@ function Visual() {
 						</div>
 					</div>
 					<div className='right' ref={Visual_Right}>
-						<div className='picture on'>
-							<h1>Lorem ipsum dolor sit amet.</h1>
-						</div>
-						<div className='picture'>
-							<h1>Lorem ipsum</h1>
-						</div>
-						<div className='picture'>
-							<h1>Lorem ipsum</h1>
-						</div>
+						{infos.map((info, idx) => {
+							return (
+								<div
+									key={idx}
+									className={onFocus === idx ? 'picture on' : 'picture'}
+									onMouseOver={() => {
+										onFocus = idx;
+										alert(onFocus);
+									}}
+								>
+									<h1>{info.content}</h1>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</section>
