@@ -7,7 +7,6 @@ function Youtube({ Scrolled, Pos }) {
 	const Youtube_List = useRef(null);
 	const Youtube_Prev = useRef(null);
 	const Youtube_Next = useRef(null);
-
 	const base = window.innerHeight / 2;
 
 	const setYoutube = () => {

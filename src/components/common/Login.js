@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Login = forwardRef((props, ref) => {
 	const [Open, setOpen] = useState(false);
@@ -33,7 +34,9 @@ const Login = forwardRef((props, ref) => {
 								<label htmlFor='save_id'>아이디 저장</label>
 							</div>
 							<div className='right'>
-								<span>회원가입</span>
+								<Link to='/Register' onClick={() => setOpen(false)}>
+									회원가입
+								</Link>
 							</div>
 						</div>
 						<span className='btn_x' onClick={() => setOpen(false)}></span>
