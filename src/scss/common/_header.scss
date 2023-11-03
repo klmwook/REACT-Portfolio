@@ -49,6 +49,10 @@ header {
 			color: #1e1e2f;
 			transition: 0.3s;
 
+			&.on {
+				box-shadow: inset 0 -9px 0 0 #97c680;
+			}
+
 			&:hover {
 				box-shadow: inset 0 -9px 0 0 #97c680;
 			}
