@@ -42,7 +42,6 @@ function App() {
 			<Route path='/Gallery' component={Gallery} />
 
 			<Switch>
-				<Route exact path='/' render={() => <Footer />} />
 				<Route path='/' render={() => <Footer />} />
 			</Switch>
 
