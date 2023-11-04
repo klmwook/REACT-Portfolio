@@ -23,10 +23,12 @@ function Footer() {
 									<Link to='/Gallery'>Gallery</Link>
 								</li>
 								<li>
-									<span>Community</span>
+									{/* <span>Community</span> */}
+									<Link to='/Community'>Community</Link>
 								</li>
 								<li>
-									<span>Location</span>
+									{/* <span>Location</span> */}
+									<Link to='/Location'>Location</Link>
 								</li>
 							</ul>
 						</div>
