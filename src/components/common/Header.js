@@ -23,11 +23,6 @@ function Header({ login }) {
 				</h1>
 
 				<ul className='menu'>
-					{/* <li>
-						<NavLink to='' activeClassName={active}>
-							Info
-						</NavLink>
-					</li> */}
 					<li>
 						<NavLink to='/Members' activeClassName={active}>
 							Members

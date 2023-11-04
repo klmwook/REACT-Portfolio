@@ -45,12 +45,14 @@ footer {
 					text-decoration: none;
 					font: 18px/1 'arial';
 
-					span {
+					a {
 						cursor: pointer;
 						transition: 0.3s;
+						text-decoration: none;
+						color: #1e1e2f;
 					}
 
-					span:hover {
+					a:hover {
 						box-shadow: inset 0 -9px 0 0 #97c680;
 					}
 				}

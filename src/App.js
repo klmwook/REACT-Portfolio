@@ -41,7 +41,10 @@ function App() {
 			<Route path='/Register' component={Register} />
 			<Route path='/Gallery' component={Gallery} />
 
-			<Footer />
+			<Switch>
+				<Route exact path='/' render={() => <Footer />} />
+				<Route path='/' render={() => <Footer />} />
+			</Switch>
 
 			<Login ref={login} />
 			<Menu login={login} />

@@ -11,13 +11,16 @@ function Footer() {
 						<div className='sitemap_Area'>
 							<ul>
 								<li>
-									<span>Members</span>
+									{/* <span>Members</span> */}
+									<Link to='/Members'>Members</Link>
 								</li>
 								<li>
-									<span>Youtube</span>
+									{/* <span>Youtube</span> */}
+									<Link to='/Youtube'>Youtube</Link>
 								</li>
 								<li>
-									<span>Gallery</span>
+									{/* <span>Gallery</span> */}
+									<Link to='/Gallery'>Gallery</Link>
 								</li>
 								<li>
 									<span>Community</span>
