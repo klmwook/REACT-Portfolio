@@ -25,7 +25,7 @@ function Header({ login }) {
 				<ul className='menu'>
 					<li>
 						<NavLink to='/Members' activeClassName={active}>
-							Members222
+							Members
 						</NavLink>
 					</li>
 					<li>
