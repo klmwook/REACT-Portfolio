@@ -4,7 +4,7 @@ import axios from 'axios';
 const fetchFlickr = async ({ queryKey }) => {
 	const opt = queryKey[1];
 	const baseURL = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
-	const key = '4b95b58f2acca136d03e1c6883048c6c';
+	const key = `${process.env.REACT_APP_FLICKR_API_KEY}`;
 	const method_interest = 'flickr.interestingness.getList';
 	const method_user = 'flickr.people.getPhotos';
 	const method_search = 'flickr.photos.search';
