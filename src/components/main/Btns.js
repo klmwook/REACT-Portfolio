@@ -14,24 +14,25 @@ function Btns({ setScrolled, setPos }) {
 		for (const sec of secs) pos.current.push(sec.offsetTop);
 		setNum(pos.current.length);
 		setPos(pos.current);
-		console.log(pos.current);
 	}, []);
 
 	const activation = useCallback(() => {
 		console.log('activation');
 		const base = -window.innerHeight / 2;
 		const scroll = window.scrollY;
-		const btns = btnRef.current.children;
-		const boxs = btnRef.current.parentElement.querySelectorAll('.myScroll');
+		const btns = btnRef.current?.children;
+		const boxs = btnRef.current?.parentElement.querySelectorAll('.myScroll');
 
-		pos.current.forEach((pos, idx) => {
-			if (scroll >= pos + base) {
-				for (const btn of btns) btn.classList.remove('on');
-				for (const box of boxs) box.classList.remove('on');
-				btns[idx].classList.add('on');
-				boxs[idx].classList.add('on');
-			}
-		});
+		if (btns || boxs) {
+			pos.current.forEach((pos, idx) => {
+				if (scroll >= pos + base) {
+					for (const btn of btns) btn.classList.remove('on');
+					for (const box of boxs) box.classList.remove('on');
+					btns[idx].classList.add('on');
+					boxs[idx].classList.add('on');
+				}
+			});
+		}
 	}, []);
 
 	const getPos_Throttle = useThrottle(getPos);

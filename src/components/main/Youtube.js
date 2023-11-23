@@ -11,7 +11,7 @@ function Youtube({ Scrolled, Pos }) {
 
 	const setYoutube = () => {
 		if (Scrolled >= Pos - base) {
-			Youtube_Wrap.current.classList.add('on');
+			Youtube_Wrap.current?.classList.add('on');
 		}
 	};
 

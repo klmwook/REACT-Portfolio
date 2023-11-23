@@ -7,8 +7,8 @@ function Skills({ Scrolled, Pos }) {
 
 	const setSkills = () => {
 		if (Scrolled >= Pos - base) {
-			Skills_Wrap.current.classList.add('on');
-			Skills_Wrap.current.querySelector('.number_area').classList.add('on');
+			Skills_Wrap.current?.classList.add('on');
+			Skills_Wrap.current?.querySelector('.number_area').classList.add('on');
 		}
 	};
 

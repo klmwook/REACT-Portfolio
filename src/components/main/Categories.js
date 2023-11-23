@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Categories({ Scrolled, Pos }) {
+	const Location = useLocation();
 	const Categories_Wrap = useRef(null);
 	const base = window.innerHeight / 2;
 	const [Menus, setMenus] = useState(['All categories', 'Entertainment', 'Lifestyle', 'Writing', 'Business']);
@@ -30,7 +32,8 @@ function Categories({ Scrolled, Pos }) {
 
 	const setCategories = () => {
 		if (Scrolled >= Pos - base) {
-			Categories_Wrap.current.classList.add('on');
+			//아래 스크롤에서 current가 세팅이 되지 않는 경우에만 처리 되게끔 수정
+			Categories_Wrap.current?.classList.add('on');
 
 			if (!first) {
 				Categories_Wrap.current.querySelectorAll('.img li').forEach((li, idx) => {
